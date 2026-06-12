@@ -575,9 +575,8 @@
 
         // 将一些关键数字用正则包裹，实现高亮效果
         function highlightNumbers(htmlStr) {
-            // 匹配独立的数字、带单位的数字 (如 1500 kcal, 20%, 65kg 等)
-            // 简单处理：将大于等于2位的数字或带有 %、kcal、kg、g、cm 的数字进行高亮
-            return htmlStr.replace(/\b(\d+(\.\d+)?)\s*(kcal|kg|g|cm|%|千卡|大卡)\b/g, '<span class="highlight-number">$1$3</span>');
+            return htmlStr.replace(/(\d+(\.\d+)?)\s*(kcal|kg|g|cm|%|千卡|大卡)/g,
+                '<span class="highlight-number">$1$3</span>');
         }
 
         // 表单提交处理
