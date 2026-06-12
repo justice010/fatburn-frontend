@@ -654,19 +654,6 @@
                 reportContent.style.display = 'block';
 
                 document.getElementById('export-btns').style.display = 'flex';
-                function exportMD() {
-                    const md = window._lastMarkdown;
-                    if (!md) return;
-                    const blob = new Blob([md], { type: 'text/markdown' });
-                    const a = document.createElement('a');
-                    a.href = URL.createObjectURL(blob);
-                    a.download = '减脂计划.md';
-                    a.click();
-                }
-
-                function exportPDF() {
-                    window.print();
-                }
 
                 // 手机端自动平滑滚动到报告区域
                 if (window.innerWidth <= 900) {
@@ -684,6 +671,19 @@
                 submitBtn.textContent = '重新生成计划';
             }
         });
+        function exportMD() {
+            const md = window._lastMarkdown;
+            if (!md) return;
+            const blob = new Blob([md], { type: 'text/markdown' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = '减脂计划.md';
+            a.click();
+        }
+
+        function exportPDF() {
+            window.print();
+        }
     </script>
 
 </body>
